@@ -43,6 +43,6 @@ void Init_Board( void )
 
 	
 	// Povolení pøijmu dat
-	RS485_EN_INT_receive;
+ 	RS485_EN_INT_receive;
 	RS485_EN_EXT_receive;
 }

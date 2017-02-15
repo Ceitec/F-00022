@@ -36,5 +36,18 @@
 
 
 
+/* Deklarování funkcí */
+
+uint8_t uart1_init(uint32_t MYUBRR0);
+uint8_t uart1_interrupt_rx(uint8_t enable);
+uint8_t uart1_interrupt_tx(uint8_t enable);
+uint8_t uart1_ptr_ask();
+void uart1_receive_char(uint8_t data);
+uint8_t check_uart1( void );
+void uart1_transmit_char(uint8_t data);
+void uart1_set_baud(uint8_t baud);
+
+
+
 
 #endif /* UART1_H_ */

@@ -35,4 +35,16 @@
 #define UART0_UCSZ02	UCSZ02
 
 
+/* Deklarování funkcí */
+
+uint8_t uart0_init(uint32_t MYUBRR0);
+uint8_t uart0_interrupt_rx(uint8_t enable);
+uint8_t uart0_interrupt_tx(uint8_t enable);
+uint8_t uart0_ptr_ask();
+void uart0_receive_char(uint8_t data);
+uint8_t check_uart0( void );
+void uart0_transmit_char(uint8_t data);
+void uart0_set_baud(uint8_t baud);
+
+
 #endif /* UART0_H_ */

@@ -46,7 +46,7 @@ volatile uint8_t uart1_rx_iptr=0;
 volatile uint8_t uart1_rx_ptr=0;
 
 
-Trinamicpac TR_Buf_In;
+Trinamicpac TB_Buf_In;
 
 uint16_t citacka0, citacka1;
 
@@ -125,7 +125,7 @@ ISR(UART1_TX_vect)
 		}
 		else
 		{
-			UART1_UDR = TR_Buf_In.b[uart1_tx_iptr];
+			UART1_UDR = TB_Buf_In.b[uart1_tx_iptr];
 			uart1_tx_iptr++;
 		}
 		uart1_rx_iptr=0;
@@ -135,7 +135,7 @@ ISR(UART1_TX_vect)
 
 
 
-uint8_t check_uart1(uint8_t data)
+uint8_t check_uart1( void )
 {
 	// Vnitøní èítaè 9 pøíchozích Bytù
 	if (uart1_rx_iptr > 8)
@@ -180,4 +180,49 @@ uint8_t check_uart1(uint8_t data)
 
 void uart1_transmit_char(uint8_t data)
 {
-	while ( !( UART1_UCSRA & (1 << UART1_UDRE)) );	UART1_UDR = data;}
+	while ( !( UART1_UCSRA & (1 << UART1_UDRE)) );	UART1_UDR = data;}void uart1_set_baud(uint8_t baud)
+{
+	// UART port
+	switch (baud) {
+		case 0:
+			MACRO_BAUDRATE(9600);
+			break;
+		case 1:
+			MACRO_BAUDRATE(14400);
+			break;
+		case 2:
+			MACRO_BAUDRATE(19200);
+			break;
+		case 3:
+			MACRO_BAUDRATE(28800);
+			break;
+		case 4:
+			MACRO_BAUDRATE(38400);
+			break;
+		case 5:
+			MACRO_BAUDRATE(57600);
+			break;
+		case 6:
+			MACRO_BAUDRATE(76800);
+			break;
+		case 7:
+			MACRO_BAUDRATE(115200);
+			break;
+		case 8:
+			MACRO_BAUDRATE(230400);
+			break;
+		case 9:
+			MACRO_BAUDRATE(250000);
+			break;
+		case 10:
+			MACRO_BAUDRATE(500000);
+			break;
+		case 11:
+			MACRO_BAUDRATE(1000000);
+			break;
+		default:
+			MACRO_BAUDRATE(115200);
+			break;
+	}
+	return;
+}

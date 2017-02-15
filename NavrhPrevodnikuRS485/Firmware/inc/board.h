@@ -10,7 +10,7 @@
 #define BOARD_H_
 
 
-
+void Init_Board( void );
 
 
 #endif /* BOARD_H_ */

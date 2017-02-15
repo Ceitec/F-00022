@@ -9,7 +9,8 @@
 #ifndef TIMER_H_
 #define TIMER_H_
 
-
+void simple_flag_null0( void );
+void simple_flag_null1( void );
 
 
 

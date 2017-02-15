@@ -22,7 +22,7 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\wdt.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
  .././inc/common_defs.h .././inc/uart0.h .././inc/uart1.h \
- .././inc/trinamic.h .././inc/timer.h
+ .././inc/trinamic.h .././inc/timer.h .././inc/board.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -77,3 +77,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././inc/trinamic.h:
 
 .././inc/timer.h:
+
+.././inc/board.h:

@@ -15,6 +15,14 @@
 //Velikost bufferu pro pøíjem dat
 #define	BUFFER_CHAR_PACKET	18 // Musí být násobky 9!!!
 
+// Adresa modulu
+#define MODULE_ADDRESS 2
+
+// Deska Slave - Základní firmware pro Slave zaøízení
+//#define MODULE_TYPE	200
+// Deska Pøevodník RS485 - Pøevodník z interní na externí RS485
+#define MODULE_TYPE	201
+
 #define LED2_ON		sbi(PORTD, PORTD6);
 #define LED2_OFF	cbi(PORTD, PORTD6);
 #define LED1_ON		sbi(PORTD, PORTD7);
