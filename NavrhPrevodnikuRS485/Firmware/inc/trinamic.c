@@ -208,7 +208,7 @@ uint8_t TB_Process0( void )
 				TB_Buf_Out.b[4] = 'V';								// Verze softwaru.
 				TB_Buf_Out.b[5] = '1';
 				TB_Buf_Out.b[6] = '.';
-				TB_Buf_Out.b[7] = '1';
+				TB_Buf_Out.b[7] = '2';
 				TB_calcSum();
 				TB_Send_Com();
 			}
