@@ -132,6 +132,10 @@ void try_receive_data_uart0( void )
 			UART1_UDR = TB_Buf_In.b[uart1_tx_iptr++];
 		}
 	}
+	else if (j==2)
+	{
+		TB_SendAck(TB_ERR_SUM, 0);
+	}
 }
 
 void try_receive_data_uart1( void )

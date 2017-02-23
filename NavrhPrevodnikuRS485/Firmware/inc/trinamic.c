@@ -107,7 +107,7 @@ uint8_t TB_Process0( void )
 						{
 							TB_gbparam1.eemagic = TB_Value;
 							b = (void *) &(TB_gbparam1.eemagic) - (void *) &(TB_gbparam1);
-							eeprom_update_byte( (uint8_t * ) (b+EEPROM_START_ADDRESS_0), TB_gbparam1.eemagic);
+							eeprom_update_byte( (uint8_t * ) (b+EEPROM_START_ADDRESS_1), TB_gbparam1.eemagic);
 						}
 						TB_SendAck(TB_ERR_EEPROM_OK, TB_Value);
 						break;
@@ -116,7 +116,7 @@ uint8_t TB_Process0( void )
 						{
 							TB_gbparam1.baud = TB_Value;
 							b = (void *) &(TB_gbparam1.baud) - (void *) &(TB_gbparam1);
-							eeprom_update_byte( (uint8_t * ) (b+EEPROM_START_ADDRESS_0), TB_gbparam1.baud);
+							eeprom_update_byte( (uint8_t * ) (b+EEPROM_START_ADDRESS_1), TB_gbparam1.baud);
 						}
 						TB_SendAck(TB_ERR_EEPROM_OK, TB_Value);
 						break;
@@ -125,7 +125,7 @@ uint8_t TB_Process0( void )
 						{
 							TB_gbparam1.address = TB_Value;
 							b = (void *) &(TB_gbparam1.address) - (void *) &(TB_gbparam1);
-							eeprom_update_byte( (uint8_t * ) (b+EEPROM_START_ADDRESS_0), TB_gbparam1.address);
+							eeprom_update_byte( (uint8_t * ) (b+EEPROM_START_ADDRESS_1), TB_gbparam1.address);
 						}
 						TB_SendAck(TB_ERR_EEPROM_OK, TB_Value);
 						break;
@@ -134,7 +134,7 @@ uint8_t TB_Process0( void )
 						{
 							TB_gbparam1.host_address = TB_Value;
 							b = (void *) &(TB_gbparam1.host_address) - (void *) &(TB_gbparam1);
-							eeprom_update_byte( (uint8_t * ) (b+EEPROM_START_ADDRESS_0), TB_gbparam1.host_address);
+							eeprom_update_byte( (uint8_t * ) (b+EEPROM_START_ADDRESS_1), TB_gbparam1.host_address);
 						}
 						TB_SendAck(TB_ERR_EEPROM_OK, TB_Value);
 						break;
@@ -305,6 +305,7 @@ void TB_SendAck(uint8_t status, uint32_t value)
 	TB_Send_Com();
 }
 
+// Interní RS485
 void TB_Init0( void )
 {
 	//  DST,   SRC, size
@@ -313,7 +314,7 @@ void TB_Init0( void )
 	{
 		// not valid data in eeprom
 		TB_gbparam0.eemagic = 66;
-		TB_gbparam0.baud = 7;
+		TB_gbparam0.baud = 10;
 		TB_gbparam0.address = MODULE_ADDRESS;
 		TB_gbparam0.telegram_pause_time = 0;
 		TB_gbparam0.host_address = 2;
@@ -332,7 +333,7 @@ void TB_Init0( void )
 
 
 /************************************************************************/
-/*  Èást zamìøená na uart1                                              */
+/*  Èást zamìøená na uart1 -  Externí RS485                              */
 /************************************************************************/
 
 
@@ -344,7 +345,7 @@ void TB_Init1( void )
 	{
 		// not valid data in eeprom
 		TB_gbparam1.eemagic = 66;
-		TB_gbparam1.baud = 0;
+		TB_gbparam1.baud = 7;
 		TB_gbparam1.address = MODULE_ADDRESS;
 		TB_gbparam1.telegram_pause_time = 0;
 		TB_gbparam1.host_address = 2;
